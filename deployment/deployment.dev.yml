@@ -1,0 +1,105 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: art-object-gsap-practice-ns
+  labels:
+    project: art-object-gsap-practice
+    owner: topgroup
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: art-object-gsap-practice-ingress
+  namespace: art-object-gsap-practice-ns
+  labels:
+    project: art-object-gsap-practice
+    owner: topgroup
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/proxy-body-size: 50m
+    nginx.ingress.kubernetes.io/from-to-www-redirect: 'true'
+    nginx.ingress.kubernetes.io/affinity: cookie
+    nginx.ingress.kubernetes.io/session-cookie-name: route
+    nginx.ingress.kubernetes.io/session-cookie-hash: sha1
+spec:
+  rules:
+    - host: dev1.digitop.vn
+      http:
+        paths:
+          - path: /art-object-gsap-practice/art-object-gsap-practice
+            pathType: Prefix
+            backend:
+              service:
+                name: art-object-gsap-practice-svc
+                port:
+                  number: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: art-object-gsap-practice-svc
+  namespace: art-object-gsap-practice-ns
+  labels:
+    app: art-object-gsap-practice
+    project: art-object-gsap-practice
+    owner: topgroup
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: art-object-gsap-practice
+  sessionAffinity: ClientIP
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: art-object-gsap-practice
+  namespace: art-object-gsap-practice-ns
+  labels:
+    project: art-object-gsap-practice
+    owner: topgroup
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: art-object-gsap-practice
+  template:
+    metadata:
+      labels:
+        owner: topgroup
+        app: art-object-gsap-practice
+        project: art-object-gsap-practice
+    spec:
+      containers:
+        - name: art-object-gsap-practice
+          image: >-
+            asia.gcr.io/top-group-k8s/art-object-gsap-practice:2022-08-13-16-23-13-amd64
+          ports:
+            - containerPort: 80
+          resources: {}
+          env:
+            - name: TZ
+              value: Asia/Ho_Chi_Minh
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: '80'
+            - name: NEXT_PUBLIC_ENV
+              value: development
+            - name: NEXT_PUBLIC_BASE_PATH
+              value: art-object-gsap-practice/art-object-gsap-practice
+            - name: NEXT_PUBLIC_API_BASE_PATH
+              value: 'https://dev1.digitop.vn/art-object-gsap-practice/backend'
+            - name: NEXT_PUBLIC_CDN_BASE_PATH
+              value: 'https://google-cdn.digitop.vn/art-object-gsap-practice/dev'
+            - name: NEXT_PUBLIC_BASE_URL
+              value: >-
+                https://dev1.digitop.vn/art-object-gsap-practice/art-object-gsap-practice
+            - name: IRON_SESSION_SECRET
+              value: SHPfrs9nuSdutAw2mn8trxCVG93YVGVR
+
+---

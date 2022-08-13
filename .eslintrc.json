@@ -1,0 +1,23 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 13,
+		"sourceType": "module"
+	},
+	"plugins": ["react"],
+	"extends": "next",
+	"rules": {
+		"@next/next/no-img-element": "off",
+		"react/display-name": "off",
+		"react/no-unescaped-entities": "off",
+		"react-hooks/rules-of-hooks": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"react/jsx-no-target-blank": "off"
+	}
+}

@@ -1,0 +1,38 @@
+{
+  "isDebugging": false,
+  "framework": "diginext",
+  "git": false,
+  "env": "dev",
+  "shoudInherit": false,
+  "port": 80,
+  "replicas": 1,
+  "size": "1x",
+  "provider": "gcloud",
+  "namespace": {
+    "dev": "art-object-gsap-practice-ns",
+    "prod": "art-object-gsap-practice-ns"
+  },
+  "ssl": true,
+  "username": "nqnduy",
+  "code": "3tMPuZ8Xjn5eU6Xndb",
+  "refreshToken": "mEgcnkvDXPhZBtfaFQ",
+  "projectSlug": "art-object-gsap-practice",
+  "repoURL": "https://bitbucket.org/digitopvn/art-object-gsap-practice/src",
+  "remoteURL": "",
+  "projectName": "art-object-gsap-practice",
+  "frameworkVersion": "v2.0.7",
+  "diginext-cli": "1.2.2",
+  "domain": {
+    "staging": [],
+    "prod": []
+  },
+  "cdn": {
+    "dev": false,
+    "staging": false,
+    "prod": false
+  },
+  "pipeline": {
+    "prod": true
+  },
+  "version": "2.0.7"
+}
