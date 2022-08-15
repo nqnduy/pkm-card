@@ -48,6 +48,7 @@
     "next-transpile-modules": "^9.0.0",
     "open": "^8.4.0",
     "os": "^0.1.2",
+    "postcss": "^8.4.16",
     "qs": "6.9.4",
     "raw-loader": "4.0.1",
     "rc-tween-one": "2.7.3",
