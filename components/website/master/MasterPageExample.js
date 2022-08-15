@@ -1,16 +1,18 @@
 import Head from "next/head";
-import Header from "components/website/elements/Header";
+import Header from "@/website/elements/Header";
 import CONFIG from "web.config";
 import { useRouter } from "next/router";
-import BasicLayout from "components/diginext/layout/BasicLayout";
-import { BS } from "components/diginext/elements/Splitters";
-import asset from "plugins/assets/asset";
 import { NextSeo } from "next-seo";
-import GlobalStyle from "styles/global";
 import { useNextResponsive } from "plugins/next-reponsive";
 import GtagScript from "../tracking/GtagScript";
+import dynamic from 'next/dynamic';
 
-function MasterPageExample({ pageName, children, header, hidePrevButton = false, hideFooter = false }) {
+const Body = dynamic(() => import('@/website/elements/Body'));
+const Variable = dynamic(() => import('styles/variable'));
+const GlobalStyle = dynamic(() => import('styles/global'));
+const CommonStyle = dynamic(() => import('styles/common'));
+
+function MasterPageExample({ pageName, children, hidePrevButton = false, hideFooter = false }) {
 	const router = useRouter();
 	const { device, breakpoint, orientation } = useNextResponsive();
 
@@ -35,29 +37,22 @@ function MasterPageExample({ pageName, children, header, hidePrevButton = false,
 
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-				<link href={asset("/dashkit/fonts/cerebrisans/cerebrisans.css")} rel="stylesheet" />
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.5/styles/foundation.min.css" />
 			</Head>
 
 			{/* TRACKING SCRIPTS - CHANGE THE ID TO THE CORRECT ONE*/}
 			<GtagScript id="G-EE9VED6EC3" />
 
-			{/* - STYLE OF THE WEBSITE - 
+			{/* - STYLE OF THE WEBSITE -
       		USE THIS COMPONENT TO AVOID CSS CONFLICTED WITH ADMIN PANEL */}
+			<Variable />
 			<GlobalStyle />
+			<CommonStyle />
 
-			<main className={[device, orientation, breakpoint].join(" ")}>
-				<BasicLayout padding="50px">
-					<Header hideButtons={hidePrevButton}>{header}</Header>
-					<hr />
-					<BS size={40} />
+			<Body>
+				<Header/>
+				<main className={[device, orientation, breakpoint].join(" ")}>{children}</main>
+			</Body>
 
-					{children}
-
-					<BS size={40} />
-					<hr />
-				</BasicLayout>
-			</main>
 		</>
 	);
 }

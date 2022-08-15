@@ -2,11 +2,15 @@ import "antd/dist/antd.min.css";
 
 const GlobalStyle = () => (
 	<style jsx global>{`
-		/* 
+		/*
 		font-family: 'Cabin', sans-serif;
 		font-family: 'Lora', serif;
 		font-family: 'Playfair Display', serif;
 		*/
+		@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+		@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@100;500;600;700&display=swap");
+		@import url("https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap");
+		@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100;700&display=swap");
 
 		@font-face {
 			font-family: "ProximaNova";
@@ -53,20 +57,112 @@ const GlobalStyle = () => (
 			padding: 0;
 			margin: 0;
 		}
-
-		// ul,
-		// li {
-		// 	padding: 0;
-		// 	margin: 0;
-		// 	list-style-type: none;
-		// 	padding-inline-start: 0px;
-		// 	margin-block-start: 0;
-		// 	margin-block-end: 0;
-		// 	line-height: 1;
-		// }
+		html,
+        body,
+        div,
+        span,
+        applet,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        a,
+        abbr,
+        acronym,
+        address,
+        big,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        s,
+        samp,
+        small,
+        strike,
+        strong,
+        sub,
+        sup,
+        tt,
+        var,
+        b,
+        u,
+        i,
+        center,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        embed,
+        figure,
+        figcaption,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        output,
+        ruby,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            font-weight: normal;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
 
 		ol li,
 		ul li {
+			list-style: none;
 			line-height: 1.5em;
 		}
 
