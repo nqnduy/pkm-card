@@ -31,7 +31,10 @@ const GlobalStyle = () => (
 			line-height: 1.3;
 			font-size: 14px;
 			width: 100%;
+			color: white;
+			background-color: #393c42;
 		}
+
 
 		#__next {
 			overflow-x: hidden;
@@ -43,167 +46,9 @@ const GlobalStyle = () => (
 			-ms-box-sizing: border-box;
 			box-sizing: border-box;
 		}
-		h1,
-		h2,
-		h3,
-		h4,
-		h5 {
-			padding: 0;
-			margin: 0;
-			font-weight: normal;
-		}
-
-		p {
-			padding: 0;
-			margin: 0;
-		}
-		html,
-        body,
-        div,
-        span,
-        applet,
-        object,
-        iframe,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        blockquote,
-        pre,
-        a,
-        abbr,
-        acronym,
-        address,
-        big,
-        cite,
-        code,
-        del,
-        dfn,
-        em,
-        img,
-        ins,
-        kbd,
-        q,
-        s,
-        samp,
-        small,
-        strike,
-        strong,
-        sub,
-        sup,
-        tt,
-        var,
-        b,
-        u,
-        i,
-        center,
-        dl,
-        dt,
-        dd,
-        ol,
-        ul,
-        li,
-        fieldset,
-        form,
-        label,
-        legend,
-        table,
-        caption,
-        tbody,
-        tfoot,
-        thead,
-        tr,
-        th,
-        td,
-        article,
-        aside,
-        canvas,
-        details,
-        embed,
-        figure,
-        figcaption,
-        footer,
-        header,
-        hgroup,
-        menu,
-        nav,
-        output,
-        ruby,
-        section,
-        summary,
-        time,
-        mark,
-        audio,
-        video {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            font: inherit;
-            font-weight: normal;
-            vertical-align: baseline;
-        }
-        /* HTML5 display-role reset for older browsers */
-        article,
-        aside,
-        details,
-        figcaption,
-        figure,
-        footer,
-        header,
-        hgroup,
-        menu,
-        nav,
-        section {
-            display: block;
-        }
-
-		ol li,
-		ul li {
-			list-style: none;
-			line-height: 1.5em;
-		}
-
-		hr {
-			border-top: 1px solid #dadada;
-		}
-
-		a,
-		a:hover,
-		a:active {
-			text-decoration: none;
-		}
-
 		img {
 			max-width: 100%;
 			display: block;
-		}
-
-		select {
-			-webkit-appearance: none;
-			-moz-appearance: none;
-			appearance: none;
-			border: 0;
-			background: none;
-		}
-
-		main {
-		}
-
-		pre {
-			margin-bottom: 0;
-		}
-		code.hljs {
-			padding: 0.8rem;
-		}
-
-		.red-circle {
-			background-color: red;
-			border-radius: 50%;
-			width: 80px;
-			height: 80px;
 		}
 	`}</style>
 );

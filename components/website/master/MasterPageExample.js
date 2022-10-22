@@ -1,13 +1,12 @@
 import Head from "next/head";
-import Header from "@/website/elements/Header";
 import CONFIG from "web.config";
+import Header from "@/website/elements/Header";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 import { useNextResponsive } from "plugins/next-reponsive";
 import GtagScript from "../tracking/GtagScript";
 import dynamic from 'next/dynamic';
 
-const Body = dynamic(() => import('@/website/elements/Body'));
 const Variable = dynamic(() => import('styles/variable'));
 const GlobalStyle = dynamic(() => import('styles/global'));
 const CommonStyle = dynamic(() => import('styles/common'));
@@ -36,7 +35,6 @@ function MasterPageExample({ pageName, children, hidePrevButton = false, hideFoo
 				<meta property="fb:app_id" content={CONFIG.NEXT_PUBLIC_FB_APP_ID} />
 
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 			</Head>
 
 			{/* TRACKING SCRIPTS - CHANGE THE ID TO THE CORRECT ONE*/}
@@ -47,12 +45,8 @@ function MasterPageExample({ pageName, children, hidePrevButton = false, hideFoo
 			<Variable />
 			<GlobalStyle />
 			<CommonStyle />
-
-			<Body>
-				<Header/>
-				<main className={[device, orientation, breakpoint].join(" ")}>{children}</main>
-			</Body>
-
+			<Header />
+			<main className={[device, orientation, breakpoint].join(" ")}>{children}</main>
 		</>
 	);
 }

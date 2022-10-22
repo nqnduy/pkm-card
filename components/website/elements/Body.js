@@ -8,7 +8,6 @@ export default function Body({ children }) {
                     display: flex;
                     flex-direction: column;
                     min-height: 100vh;
-                    padding: 0 5vw;
                     main {
                         flex-grow: 1;
                     }
